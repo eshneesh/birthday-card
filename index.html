@@ -910,24 +910,20 @@
     .mail-word {
       position: absolute;
       z-index: 5;
-      right: 9%;
-      bottom: 12%;
-      left: 8%;
+      right: 5%;
+      bottom: 6%;
+      left: 5%;
+      height: 27%;
       overflow: hidden;
-      color: var(--crimson);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(29px, 3.25vw, 48px);
-      font-style: italic;
-      line-height: 1;
-      letter-spacing: -.055em;
-      text-align: center;
-      text-overflow: clip;
-      white-space: nowrap;
       transform: rotate(-3deg);
     }
 
-    .envelope-card:nth-child(3) .mail-word {
-      font-size: clamp(21px, 2.45vw, 35px);
+    .mail-word svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      mix-blend-mode: multiply;
     }
 
     .mail-label {
@@ -1712,55 +1708,67 @@
       </div>
 
       <div class="envelopes">
-        <!-- Позже текстовые фрагменты ниже можно заменить изображениями рукописной фразы. -->
-        <button class="envelope-card envelope-reveal" type="button" data-letter="0" aria-label="Открыть письмо 1: С">
+        <!-- Каждая mail-word — отдельный слот для цельной рукописной фразы. Пока во всех трёх стоит handwriting-01.png. -->
+        <button class="envelope-card envelope-reveal" type="button" data-letter="0" aria-label="Открыть письмо 1 с рукописным поздравлением">
           <span class="mail-float" aria-hidden="true">
             <span class="mail-art">
               <span class="mail-back"></span>
-              <span class="mail-teaser"><span>С</span></span>
+              <span class="mail-teaser"><span>Здесь будет текст</span></span>
               <span class="mail-flap">
                 <svg viewBox="0 0 640 260" preserveAspectRatio="none" focusable="false">
                   <path d="M 1 1 H 639 L 392 208 Q 320 268 248 208 Z"></path>
                 </svg>
               </span>
               <span class="mail-front"></span>
-              <span class="mail-word">С</span>
+              <span class="mail-word" data-handwriting="1">
+                <svg viewBox="75 360 660 125" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <image href="assets/birthday-card/handwriting-01.png" width="776" height="552"></image>
+                </svg>
+              </span>
               <span class="seal">01</span>
             </span>
           </span>
           <span class="mail-label"><span>Открыть</span><span>Письмо 01</span></span>
         </button>
 
-        <button class="envelope-card envelope-reveal" type="button" data-letter="1" aria-label="Открыть письмо 2: днём">
+        <button class="envelope-card envelope-reveal" type="button" data-letter="1" aria-label="Открыть письмо 2 с рукописным поздравлением">
           <span class="mail-float" aria-hidden="true">
             <span class="mail-art">
               <span class="mail-back"></span>
-              <span class="mail-teaser"><span>днём</span></span>
+              <span class="mail-teaser"><span>Здесь будет текст</span></span>
               <span class="mail-flap">
                 <svg viewBox="0 0 640 260" preserveAspectRatio="none" focusable="false">
                   <path d="M 1 1 H 639 L 392 208 Q 320 268 248 208 Z"></path>
                 </svg>
               </span>
               <span class="mail-front"></span>
-              <span class="mail-word">днём</span>
+              <span class="mail-word" data-handwriting="2">
+                <svg viewBox="75 360 660 125" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <image href="assets/birthday-card/handwriting-01.png" width="776" height="552"></image>
+                </svg>
+              </span>
               <span class="seal">02</span>
             </span>
           </span>
           <span class="mail-label"><span>Открыть</span><span>Письмо 02</span></span>
         </button>
 
-        <button class="envelope-card envelope-reveal" type="button" data-letter="2" aria-label="Открыть письмо 3: рождения">
+        <button class="envelope-card envelope-reveal" type="button" data-letter="2" aria-label="Открыть письмо 3 с рукописным поздравлением">
           <span class="mail-float" aria-hidden="true">
             <span class="mail-art">
               <span class="mail-back"></span>
-              <span class="mail-teaser"><span>рождения!</span></span>
+              <span class="mail-teaser"><span>Здесь будет текст</span></span>
               <span class="mail-flap">
                 <svg viewBox="0 0 640 260" preserveAspectRatio="none" focusable="false">
                   <path d="M 1 1 H 639 L 392 208 Q 320 268 248 208 Z"></path>
                 </svg>
               </span>
               <span class="mail-front"></span>
-              <span class="mail-word">рождения!</span>
+              <span class="mail-word" data-handwriting="3">
+                <svg viewBox="75 360 660 125" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <image href="assets/birthday-card/handwriting-01.png" width="776" height="552"></image>
+                </svg>
+              </span>
               <span class="seal">03</span>
             </span>
           </span>
