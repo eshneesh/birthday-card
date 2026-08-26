@@ -31,6 +31,22 @@
       font-display: swap;
     }
 
+    @font-face {
+      font-family: "Mak";
+      src: url("assets/birthday-card/fonts/mak-bold.otf") format("opentype");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Splatted";
+      src: url("assets/birthday-card/fonts/splatted-personal-use.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
     :root {
       --paper: #f6f4ee;
       --paper-bright: #fffdf8;
@@ -192,6 +208,22 @@
       line-height: .72;
       letter-spacing: -.075em;
       text-transform: uppercase;
+    }
+
+    .hero-graffiti {
+      position: absolute;
+      z-index: 0;
+      bottom: 3%;
+      left: -3vw;
+      color: var(--violet);
+      font-family: "Splatted", "MTS Compact", Arial, sans-serif;
+      font-size: clamp(180px, 28vw, 430px);
+      font-weight: 400;
+      line-height: .58;
+      opacity: .08;
+      pointer-events: none;
+      transform: rotate(-5deg);
+      white-space: nowrap;
     }
 
     .title-line {
@@ -492,6 +524,7 @@
     .letters-title {
       max-width: 780px;
       margin: 0;
+      font-family: "Mak", "MTS Compact", Arial, sans-serif;
       font-size: clamp(54px, 8.3vw, 132px);
       line-height: .78;
       letter-spacing: -.065em;
@@ -704,6 +737,7 @@
       z-index: 4;
       max-width: 1120px;
       margin: 0;
+      font-family: "Mak", "MTS Compact", Arial, sans-serif;
       font-size: clamp(66px, 11.8vw, 186px);
       line-height: .75;
       letter-spacing: -.08em;
@@ -1145,6 +1179,13 @@
         font-size: 32px;
       }
 
+      .hero-graffiti {
+        bottom: 19%;
+        left: -23vw;
+        font-size: 68vw;
+        opacity: .065;
+      }
+
       .scroll-note, .scribble { display: none; }
 
       .editorial {
@@ -1266,6 +1307,7 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-orb" aria-hidden="true"></div>
+      <span class="hero-graffiti" aria-hidden="true">BDAY</span>
       <div class="hero-photo-wrap hero-photo-card">
         <img class="hero-photo" src="assets/birthday-card/portrait.jpg" alt="Портрет именинника">
         <span class="photo-stamp">A very<br>special<br>day</span>
