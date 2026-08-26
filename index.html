@@ -600,6 +600,7 @@
 
     .orbit-frame:nth-child(3n + 1) { width: clamp(170px, 18vw, 270px); }
     .orbit-frame:nth-child(4n + 2) { width: clamp(120px, 12vw, 180px); }
+    .orbit-frame.orbit-frame--portrait { width: clamp(150px, 15vw, 225px); }
 
     .orbit-frame img {
       width: 100%;
@@ -610,9 +611,13 @@
       will-change: transform;
     }
 
-    .orbit-frame:nth-child(even) img { aspect-ratio: .84; }
     .orbit-frame:nth-child(3n) img { object-position: 50% 28%; }
     .orbit-frame:nth-child(5n) img { object-position: 25% 50%; }
+
+    .orbit-frame--portrait img {
+      aspect-ratio: .79;
+      object-position: 50% 50%;
+    }
 
     .orbit-frame figcaption {
       position: absolute;
@@ -1587,15 +1592,12 @@
         <h2 class="orbit-title" id="orbit-title">Моменты<span>в движении</span></h2>
         <div class="photo-orbit" aria-hidden="true">
           <figure class="orbit-frame"><img src="assets/birthday-card/collages/paris.jpg" alt="" loading="lazy"></figure>
-          <figure class="orbit-frame"><img src="assets/birthday-card/collages/beach.jpg" alt="" loading="lazy"></figure>
+          <figure class="orbit-frame orbit-frame--portrait"><img src="assets/birthday-card/collages/forest.jpg" alt="" loading="lazy"></figure>
           <figure class="orbit-frame"><img src="assets/birthday-card/collages/cinema.jpg" alt="" loading="lazy"></figure>
-          <figure class="orbit-frame"><img src="assets/birthday-card/collages/beat-band.jpg" alt="" loading="lazy"></figure>
+          <figure class="orbit-frame orbit-frame--portrait"><img src="assets/birthday-card/collages/kids.jpg" alt="" loading="lazy"></figure>
           <figure class="orbit-frame"><img src="assets/birthday-card/collages/beach.jpg" alt="" loading="lazy"></figure>
-          <figure class="orbit-frame"><img src="assets/birthday-card/collages/paris.jpg" alt="" loading="lazy"></figure>
+          <figure class="orbit-frame orbit-frame--portrait"><img src="assets/birthday-card/collages/grandpas.jpg" alt="" loading="lazy"></figure>
           <figure class="orbit-frame"><img src="assets/birthday-card/collages/beat-band.jpg" alt="" loading="lazy"></figure>
-          <figure class="orbit-frame"><img src="assets/birthday-card/collages/cinema.jpg" alt="" loading="lazy"></figure>
-          <figure class="orbit-frame"><img src="assets/birthday-card/collages/paris.jpg" alt="" loading="lazy"></figure>
-          <figure class="orbit-frame"><img src="assets/birthday-card/collages/beach.jpg" alt="" loading="lazy"></figure>
         </div>
         <div class="orbit-eye" aria-hidden="true"><span></span></div>
         <p class="orbit-counter" aria-hidden="true">000%</p>
@@ -2005,16 +2007,13 @@
         const orbitFrames = gsap.utils.toArray(".orbit-frame");
         const orbitCounter = document.querySelector(".orbit-counter");
         const orbitTargets = [
-          { x: -430, y: -185, r: -6, s: 1 },
-          { x: -265, y: -292, r: 4, s: .9 },
-          { x: -35, y: -285, r: -3, s: .86 },
-          { x: 235, y: -285, r: 5, s: .94 },
-          { x: 420, y: -105, r: -4, s: 1 },
-          { x: 405, y: 155, r: 5, s: .88 },
-          { x: 210, y: 275, r: -5, s: .96 },
-          { x: -40, y: 300, r: 3, s: .86 },
-          { x: -300, y: 235, r: -4, s: 1 },
-          { x: -445, y: 55, r: 5, s: .9 }
+          { x: -430, y: -170, r: -6, s: 1 },
+          { x: -220, y: -300, r: 4, s: .9 },
+          { x: 65, y: -300, r: -3, s: .88 },
+          { x: 350, y: -180, r: 5, s: .94 },
+          { x: 410, y: 90, r: -4, s: 1 },
+          { x: 170, y: 280, r: 5, s: .9 },
+          { x: -260, y: 250, r: -5, s: .96 }
         ];
         const orbitXFactor = () => window.innerWidth < 700
           ? window.innerWidth / 1340
