@@ -773,6 +773,12 @@
     .envelope-card:nth-child(1) { transform: rotate(-4deg) translateY(20px); }
     .envelope-card:nth-child(2) { transform: rotate(2deg) translateY(-26px); }
     .envelope-card:nth-child(3) { transform: rotate(5deg) translateY(28px); }
+    .envelope-card:nth-child(4) {
+      grid-column: 2;
+      width: 76%;
+      justify-self: center;
+      transform: rotate(-2deg) translateY(12px);
+    }
 
     .envelope-card:focus-visible .mail-art {
       outline: 3px solid var(--crimson);
@@ -932,6 +938,21 @@
       height: 34%;
     }
 
+    .mail-word--note {
+      right: 8%;
+      bottom: 7%;
+      left: 8%;
+      height: 29%;
+      display: grid;
+      place-items: center;
+      overflow: visible;
+      color: var(--crimson);
+      font-family: "Gogol", Georgia, "Times New Roman", serif;
+      font-size: clamp(23px, 2.5vw, 38px);
+      line-height: .9;
+      text-align: center;
+    }
+
     .mail-label {
       display: flex;
       justify-content: space-between;
@@ -942,111 +963,6 @@
     }
 
     .mail-label span:last-child { opacity: .55; }
-
-    .collage {
-      position: relative;
-      min-height: 1100px;
-      padding: clamp(110px, 15vw, 210px) var(--pad);
-      overflow: hidden;
-    }
-
-    .collage-kicker {
-      margin: 0 0 40px;
-      color: var(--crimson);
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: .16em;
-    }
-
-    .collage-title {
-      position: relative;
-      z-index: 4;
-      max-width: 1120px;
-      margin: 0;
-      font-family: "Mak", "MTS Compact", Arial, sans-serif;
-      font-size: clamp(66px, 11.8vw, 186px);
-      line-height: .75;
-      letter-spacing: -.08em;
-      text-transform: uppercase;
-    }
-
-    .collage-title span {
-      display: block;
-      margin-left: 16vw;
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--ink);
-    }
-
-    .collage-photo-main {
-      position: relative;
-      z-index: 2;
-      width: min(72vw, 940px);
-      margin: -1vw auto 0;
-      padding: 12px 12px 52px;
-      background: white;
-      box-shadow: var(--shadow);
-      transform: rotate(-2deg);
-    }
-
-    .collage-photo-main img {
-      width: 100%;
-      max-height: 680px;
-      object-fit: cover;
-      object-position: 50% 37%;
-      filter: saturate(.8) contrast(1.02);
-    }
-
-    .collage-photo-main figcaption {
-      position: absolute;
-      bottom: 17px;
-      left: 14px;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: .13em;
-    }
-
-    .collage-photo-small {
-      position: absolute;
-      z-index: 4;
-      right: 4vw;
-      bottom: 90px;
-      width: min(25vw, 330px);
-      padding: 9px 9px 42px;
-      background: white;
-      box-shadow: var(--shadow);
-      transform: rotate(7deg);
-    }
-
-    .collage-photo-small img {
-      width: 100%;
-      aspect-ratio: .9;
-      object-fit: cover;
-      object-position: 50% 30%;
-    }
-
-    .collage-caption {
-      position: absolute;
-      z-index: 4;
-      left: 5vw;
-      bottom: 155px;
-      width: min(270px, 22vw);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(18px, 2.2vw, 31px);
-      font-style: italic;
-      line-height: 1.15;
-      transform: rotate(-5deg);
-    }
-
-    .collage-ring {
-      position: absolute;
-      z-index: 1;
-      right: -10vw;
-      top: 25%;
-      width: min(62vw, 820px);
-      aspect-ratio: 1;
-      border: clamp(35px, 6vw, 90px) solid rgba(226, 9, 66, .92);
-      border-radius: 50%;
-    }
 
     .finale {
       position: relative;
@@ -1316,7 +1232,6 @@
     .orbit-note,
     .letters-hint,
     .mail-teaser span,
-    .collage-caption,
     .finale-title em,
     .signature,
     .letter-signature {
@@ -1370,13 +1285,15 @@
       .envelope-card:nth-child(2) { margin-left: 10vw; }
       .envelope-card:nth-child(3) { margin-right: 10vw; }
 
+      .envelope-card:nth-child(4) {
+        grid-column: 1;
+        width: 82%;
+        justify-self: center;
+      }
+
       .photo-orbit-section { height: 230vh; }
 
       .orbit-counter { right: 18px; }
-
-      .collage { min-height: 900px; }
-
-      .collage-caption { width: 180px; }
     }
 
     @media (max-width: 620px) {
@@ -1524,34 +1441,6 @@
 
       .mail-label { padding-inline: 6px; }
 
-      .collage { min-height: 760px; padding-top: 110px; }
-
-      .collage-title { font-size: 70px; }
-
-      .collage-title span { margin-left: 6vw; }
-
-      .collage-photo-main {
-        width: 94vw;
-        margin: 20px 0 0 -5vw;
-      }
-
-      .collage-photo-main img { height: 420px; }
-
-      .collage-photo-small {
-        right: 2vw;
-        bottom: 46px;
-        width: 40vw;
-      }
-
-      .collage-caption {
-        left: 7vw;
-        bottom: 76px;
-        width: 150px;
-        font-size: 18px;
-      }
-
-      .collage-ring { top: 40%; right: -45vw; width: 110vw; }
-
       .finale { min-height: 760px; }
 
       .finale-title { font-size: 70px; }
@@ -1567,9 +1456,19 @@
         padding: 74px 28px 86px 38px;
       }
 
-      .letter-number { margin-bottom: 60px; }
+      .letter-number { margin-bottom: 36px; }
 
-      .letter-heading { font-size: 50px; }
+      .letter-heading {
+        margin-bottom: 24px;
+        font-size: 42px;
+      }
+
+      .letter-body {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .letter-signature { padding-top: 28px; }
 
       .letter-nav { bottom: 17px; }
     }
@@ -1676,9 +1575,9 @@
     </section>
 
     <section class="editorial" aria-labelledby="editorial-title">
-      <h2 class="editorial-title reveal" id="editorial-title">Люди, которые делают день <em>особенным.</em></h2>
+      <h2 class="editorial-title reveal" id="editorial-title">Сегодня всё —<br><em>про тебя.</em></h2>
       <figure class="memory-photo photo-reveal">
-        <img src="assets/birthday-card/collages/paris.jpg" alt="Бумажный коллаж команды в Париже">
+        <img src="assets/birthday-card/team.jpg" alt="Команда коллег за одним столом">
       </figure>
       <span class="asterisk" aria-hidden="true">*</span>
     </section>
@@ -1705,7 +1604,7 @@
 
     <section class="letters-section" id="letters" aria-labelledby="letters-title">
       <div class="letters-header">
-        <h2 class="letters-title reveal" id="letters-title">Три письма.<br>Один повод.</h2>
+        <h2 class="letters-title reveal" id="letters-title">Четыре письма.<br>Один повод.</h2>
         <p class="letters-hint reveal">Нажми на любой конверт — внутри спрятано поздравление.</p>
       </div>
 
@@ -1772,18 +1671,25 @@
           </span>
           <span class="mail-label"><span>Открыть</span><span>Письмо 03</span></span>
         </button>
-      </div>
-    </section>
 
-    <section class="collage" aria-labelledby="collage-title">
-      <h2 class="collage-title reveal" id="collage-title">Лучшее —<span>рядом.</span></h2>
-      <figure class="collage-photo-main photo-reveal">
-        <img src="assets/birthday-card/collages/cinema.jpg" alt="Бумажный коллаж команды в кинотеатре">
-      </figure>
-      <figure class="collage-photo-small photo-reveal">
-        <img src="assets/birthday-card/collages/beat-band.jpg" alt="Винтажный бумажный коллаж музыкальной группы">
-      </figure>
-      <div class="collage-ring" aria-hidden="true"></div>
+        <button class="envelope-card envelope-card--note envelope-reveal" type="button" data-letter="3" aria-label="Открыть маленькую записку 4">
+          <span class="mail-float" aria-hidden="true">
+            <span class="mail-art">
+              <span class="mail-back"></span>
+              <span class="mail-teaser"><span></span></span>
+              <span class="mail-flap">
+                <svg viewBox="0 0 640 260" preserveAspectRatio="none" focusable="false">
+                  <path d="M 1 1 H 639 L 392 208 Q 320 268 248 208 Z"></path>
+                </svg>
+              </span>
+              <span class="mail-front"></span>
+              <span class="mail-word mail-word--note">маленькая<br>записка</span>
+              <span class="seal">04</span>
+            </span>
+          </span>
+          <span class="mail-label"><span>Открыть</span><span>Записка 04</span></span>
+        </button>
+      </div>
     </section>
 
     <section class="finale" aria-labelledby="finale-title">
@@ -1803,9 +1709,9 @@
     <article class="letter-sheet">
       <button class="letter-close" type="button" aria-label="Закрыть письмо">×</button>
       <p class="letter-number">Письмо 01 · от коллег</p>
-      <h2 class="letter-heading" id="modal-title">Здесь будет заголовок</h2>
-      <p class="letter-body" id="modal-copy">Здесь будет текст. Здесь будет текст. Здесь будет текст.</p>
-      <p class="letter-signature">— Здесь будет подпись</p>
+      <h2 class="letter-heading" id="modal-title">Спасибо, что рядом</h2>
+      <p class="letter-body" id="modal-copy">Спасибо, что составил компанию в огне, воде и медных трубах! Желаю тебе душевного спокойствия, близких по духу людей, вдохновения на творчество и новые свершения. Надеюсь с тобой больше никогда не будет ситуаций, от которых снова хочется начать курить!</p>
+      <p class="letter-signature">— Аналитик Настя</p>
     </article>
     <nav class="letter-nav" aria-label="Переключение писем">
       <button type="button" data-direction="-1">← Предыдущее</button>
@@ -1822,19 +1728,28 @@
       // Все будущие поздравления редактируются в одном месте.
       const letters = [
         {
+          label: "Письмо",
+          title: "Спасибо, что рядом",
+          body: "Спасибо, что составил компанию в огне, воде и медных трубах! Желаю тебе душевного спокойствия, близких по духу людей, вдохновения на творчество и новые свершения. Надеюсь с тобой больше никогда не будет ситуаций, от которых снова хочется начать курить!",
+          signature: "— Аналитик Настя"
+        },
+        {
+          label: "Письмо",
+          title: "Пусть всё получится",
+          body: "Желаю крепкого здоровья, счастья, любви, вдохновения, успеха успешного во всем, неисчерпаемых сил и энергии на пути к достижению всех поставленных целей и желаний!",
+          signature: "— Аналитик Лера"
+        },
+        {
+          label: "Письмо",
           title: "Здесь будет заголовок",
-          body: "Здесь будет текст. Здесь будет текст. Здесь будет текст.",
+          body: "Здесь будет текст.",
           signature: "— Здесь будет подпись"
         },
         {
-          title: "Здесь будет заголовок",
-          body: "Здесь будет текст. Здесь будет текст. Здесь будет текст.",
-          signature: "— Здесь будет подпись"
-        },
-        {
-          title: "Здесь будет заголовок",
-          body: "Здесь будет текст. Здесь будет текст. Здесь будет текст.",
-          signature: "— Здесь будет подпись"
+          label: "Записка",
+          title: "Береги себя",
+          body: "Желаю не нырять слишком глубоко и сохранять ментальное здоровье.",
+          signature: "— Карина"
         }
       ];
 
@@ -1846,19 +1761,64 @@
       const heading = modal.querySelector(".letter-heading");
       const copy = modal.querySelector(".letter-body");
       const signature = modal.querySelector(".letter-signature");
+      const letterParts = [number, heading, copy, signature];
       const envelopeButtons = [...document.querySelectorAll(".envelope-card")];
       const confettiLayer = modal.querySelector(".confetti-layer");
       let currentLetter = 0;
       let activeButton = null;
       let modalTimeline = null;
+      let letterSwitchTimeline = null;
 
       const setLetterContent = (index) => {
         currentLetter = (index + letters.length) % letters.length;
         const item = letters[currentLetter];
-        number.textContent = `Письмо ${String(currentLetter + 1).padStart(2, "0")} · от коллег`;
+        number.textContent = `${item.label} ${String(currentLetter + 1).padStart(2, "0")} · от коллег`;
         heading.textContent = item.title;
         copy.textContent = item.body;
         signature.textContent = item.signature;
+      };
+
+      const switchLetter = (index, direction = 1) => {
+        const next = (index + letters.length) % letters.length;
+        letterSwitchTimeline?.kill();
+        gsap.killTweensOf(letterParts);
+
+        if (reducedMotion) {
+          setLetterContent(next);
+          sheet.scrollTop = 0;
+          gsap.set(letterParts, { clearProps: "transform,opacity,visibility" });
+          return;
+        }
+
+        letterSwitchTimeline = gsap.timeline({
+          onComplete: () => {
+            gsap.set(letterParts, { clearProps: "transform,opacity,visibility" });
+            letterSwitchTimeline = null;
+          }
+        });
+
+        letterSwitchTimeline
+          .to(letterParts, {
+            x: -direction * 22,
+            autoAlpha: 0,
+            duration: .16,
+            stagger: .015,
+            ease: "power2.in",
+            overwrite: true
+          })
+          .call(() => {
+            setLetterContent(next);
+            sheet.scrollTop = 0;
+          })
+          .set(letterParts, { x: direction * 28, autoAlpha: 0 })
+          .to(letterParts, {
+            x: 0,
+            autoAlpha: 1,
+            duration: .34,
+            stagger: .05,
+            ease: "power2.out",
+            overwrite: true
+          });
       };
 
       const makeConfetti = () => {
@@ -1910,10 +1870,14 @@
 
         if (reducedMotion) {
           gsap.set(modal, { display: "flex", autoAlpha: 1 });
+          gsap.set(sheet, { autoAlpha: 1, clearProps: "transform" });
+          gsap.set(letterParts, { clearProps: "transform,opacity,visibility" });
           closeButton.focus();
           return;
         }
 
+        gsap.set(sheet, { clearProps: "transform,opacity,visibility" });
+        gsap.set(letterParts, { clearProps: "transform,opacity,visibility" });
         modalTimeline = gsap.timeline({ defaults: { ease: "power3.inOut" } });
         modalTimeline
           .to(envelopeButtons.filter(item => item !== button), { autoAlpha: .24, duration: .28 }, 0)
@@ -1925,11 +1889,12 @@
           .to(teaser, { yPercent: -72, duration: .62, ease: "back.out(1.25)" }, .52)
           .set(modal, { display: "flex" }, .86)
           .to(modal, { autoAlpha: 1, duration: .42 }, .86)
-          .fromTo(sheet, { y: 90, rotation: -2.2, scale: .91 }, { y: 0, rotation: 0, scale: 1, duration: .72, ease: "expo.out" }, .9)
-          .fromTo([number, heading, copy, signature], { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .55, stagger: .08, ease: "power2.out" }, 1.16)
+          .fromTo(sheet, { y: 90, rotation: -2.2, scale: .91, autoAlpha: 0 }, { y: 0, rotation: 0, scale: 1, autoAlpha: 1, duration: .72, ease: "expo.out" }, .9)
+          .fromTo(letterParts, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .55, stagger: .08, ease: "power2.out" }, 1.16)
           .call(() => {
             animateConfetti();
             closeButton.focus();
+            modalTimeline = null;
           });
       };
 
@@ -1954,11 +1919,18 @@
         const focusTarget = activeButton;
         const finish = () => {
           gsap.set(modal, { display: "none", clearProps: "opacity,visibility" });
+          gsap.set(sheet, { clearProps: "transform,opacity,visibility" });
+          gsap.set(letterParts, { clearProps: "transform,opacity,visibility" });
           resetEnvelope();
           document.body.classList.remove("modal-open");
           focusTarget?.focus();
           activeButton = null;
+          modalTimeline = null;
         };
+
+        letterSwitchTimeline?.kill();
+        letterSwitchTimeline = null;
+        gsap.killTweensOf(letterParts);
 
         if (reducedMotion) {
           finish();
@@ -1994,22 +1966,15 @@
       modal.querySelectorAll("[data-direction]").forEach((button) => {
         button.addEventListener("click", () => {
           const direction = Number(button.dataset.direction);
-          const next = (currentLetter + direction + letters.length) % letters.length;
-          setLetterContent(next);
-          if (!reducedMotion) {
-            gsap.fromTo([number, heading, copy, signature],
-              { x: direction * 30, autoAlpha: 0 },
-              { x: 0, autoAlpha: 1, duration: .45, stagger: .06, ease: "power2.out" }
-            );
-          }
+          switchLetter(currentLetter + direction, direction);
         });
       });
 
       document.addEventListener("keydown", (event) => {
         if (!document.body.classList.contains("modal-open")) return;
         if (event.key === "Escape") closeLetter();
-        if (event.key === "ArrowRight") setLetterContent(currentLetter + 1);
-        if (event.key === "ArrowLeft") setLetterContent(currentLetter - 1);
+        if (event.key === "ArrowRight") switchLetter(currentLetter + 1, 1);
+        if (event.key === "ArrowLeft") switchLetter(currentLetter - 1, -1);
 
         if (event.key === "Tab") {
           const focusable = [...modal.querySelectorAll("button")];
@@ -2128,7 +2093,7 @@
           scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 }
         });
 
-        gsap.utils.toArray(".reveal:not(.editorial-title):not(.letters-title):not(.collage-title):not(.finale-title)").forEach((element) => {
+        gsap.utils.toArray(".reveal:not(.editorial-title):not(.letters-title):not(.finale-title)").forEach((element) => {
           gsap.from(element, {
             y: 60,
             autoAlpha: 0,
@@ -2138,7 +2103,7 @@
           });
         });
 
-        gsap.utils.toArray(".editorial-title, .letters-title, .collage-title, .finale-title").forEach((element) => {
+        gsap.utils.toArray(".editorial-title, .letters-title, .finale-title").forEach((element) => {
           gsap.fromTo(element, {
             clipPath: "inset(0 0 100% 0)",
             y: 70,
@@ -2181,20 +2146,6 @@
           yPercent: 60,
           ease: "none",
           scrollTrigger: { trigger: ".editorial", start: "top bottom", end: "bottom top", scrub: 1 }
-        });
-
-        gsap.to(".collage-ring", {
-          rotation: 90,
-          xPercent: -10,
-          ease: "none",
-          scrollTrigger: { trigger: ".collage", start: "top bottom", end: "bottom top", scrub: 1.2 }
-        });
-
-        gsap.to(".collage-photo-small", {
-          yPercent: -28,
-          rotation: 1,
-          ease: "none",
-          scrollTrigger: { trigger: ".collage", start: "top bottom", end: "bottom top", scrub: 1 }
         });
 
         gsap.fromTo(".finale", {
