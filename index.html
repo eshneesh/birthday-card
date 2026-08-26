@@ -490,6 +490,205 @@
       transform: rotate(18deg);
     }
 
+    .photo-orbit-section {
+      position: relative;
+      z-index: 1;
+      height: 260vh;
+      color: var(--ink);
+      background: #e8e2ec;
+      isolation: isolate;
+    }
+
+    .orbit-sticky {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100svh;
+      overflow: hidden;
+    }
+
+    .orbit-sticky::before {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      content: "";
+      opacity: .42;
+      background-image: radial-gradient(rgba(24,22,24,.22) .7px, transparent .7px);
+      background-size: 18px 18px;
+      mask-image: radial-gradient(circle at center, black, transparent 72%);
+    }
+
+    .orbit-sticky::after {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: min(68vw, 920px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(24,22,24,.16);
+      border-radius: 50%;
+      content: "";
+      transform: translate(-50%, -50%);
+    }
+
+    .orbit-topline {
+      position: absolute;
+      z-index: 20;
+      top: 26px;
+      right: var(--pad);
+      left: var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: .16em;
+    }
+
+    .orbit-title {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      width: min(92vw, 1100px);
+      margin: 0;
+      font-family: "Mak", "MTS Compact", Arial, sans-serif;
+      font-size: clamp(76px, 12vw, 184px);
+      font-weight: 700;
+      line-height: .76;
+      letter-spacing: -.065em;
+      text-align: center;
+      text-transform: uppercase;
+      transform: translate(-50%, -50%);
+    }
+
+    .orbit-title span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(24,22,24,.6);
+    }
+
+    .photo-orbit {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      perspective: 1200px;
+    }
+
+    .orbit-frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: clamp(138px, 14vw, 210px);
+      margin: 0;
+      padding: 5px 5px 24px;
+      border: 1px solid rgba(24,22,24,.14);
+      background: var(--paper-bright);
+      box-shadow: 0 22px 48px rgba(49,35,43,.16);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .orbit-frame:nth-child(3n + 1) { width: clamp(170px, 18vw, 270px); }
+    .orbit-frame:nth-child(4n + 2) { width: clamp(120px, 12vw, 180px); }
+
+    .orbit-frame img {
+      width: 100%;
+      aspect-ratio: 1.44;
+      object-fit: cover;
+      filter: saturate(.76) contrast(1.03);
+      transition: transform .7s var(--ease-out), filter .35s ease;
+      will-change: transform;
+    }
+
+    .orbit-frame:nth-child(even) img { aspect-ratio: .84; }
+    .orbit-frame:nth-child(3n) img { object-position: 50% 28%; }
+    .orbit-frame:nth-child(5n) img { object-position: 25% 50%; }
+
+    .orbit-frame figcaption {
+      position: absolute;
+      right: 7px;
+      bottom: 7px;
+      left: 7px;
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-size: 7px;
+      letter-spacing: .13em;
+    }
+
+    .orbit-frame:hover img {
+      filter: saturate(1) contrast(1.02);
+      transform: scale(1.055);
+    }
+
+    .orbit-eye {
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      width: 76px;
+      height: 34px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .orbit-eye::before,
+    .orbit-eye::after {
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      content: "";
+      transform: translateY(-50%);
+    }
+
+    .orbit-eye::before { left: 14px; }
+    .orbit-eye::after { right: 14px; }
+
+    .orbit-eye span {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--crimson);
+      transform: translate(-50%, -50%);
+    }
+
+    .orbit-counter {
+      position: absolute;
+      z-index: 20;
+      top: 50%;
+      right: var(--pad);
+      margin: 0;
+      font-size: clamp(40px, 5vw, 72px);
+      font-variant-numeric: tabular-nums;
+      line-height: .8;
+      letter-spacing: -.05em;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+    }
+
+    .orbit-note {
+      position: absolute;
+      z-index: 20;
+      bottom: 30px;
+      left: var(--pad);
+      width: 220px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 1.2;
+    }
+
     .letters-section {
       position: relative;
       min-height: 100vh;
@@ -570,6 +769,13 @@
     .envelope-card:focus-visible .mail-art {
       outline: 3px solid var(--crimson);
       outline-offset: 8px;
+    }
+
+    .envelope-card.is-opening .mail-art { outline: none; }
+
+    .mail-float {
+      display: block;
+      will-change: transform;
     }
 
     .mail-art {
@@ -1130,6 +1336,10 @@
       .envelope-card:nth-child(2) { margin-left: 10vw; }
       .envelope-card:nth-child(3) { margin-right: 10vw; }
 
+      .photo-orbit-section { height: 230vh; }
+
+      .orbit-counter { right: 18px; }
+
       .collage { min-height: 900px; }
 
       .collage-caption { width: 180px; }
@@ -1212,6 +1422,59 @@
 
       .asterisk { top: 32%; right: 0; }
 
+      .photo-orbit-section { height: 220vh; }
+
+      .orbit-topline {
+        top: 18px;
+        align-items: flex-start;
+      }
+
+      .orbit-topline span:last-child {
+        width: 120px;
+        text-align: right;
+      }
+
+      .orbit-title {
+        width: 96vw;
+        font-size: 18vw;
+      }
+
+      .orbit-frame,
+      .orbit-frame:nth-child(3n + 1),
+      .orbit-frame:nth-child(4n + 2) {
+        width: clamp(94px, 31vw, 132px);
+        padding: 3px 3px 18px;
+      }
+
+      .orbit-frame figcaption {
+        right: 4px;
+        bottom: 5px;
+        left: 4px;
+        font-size: 6px;
+      }
+
+      .orbit-counter {
+        right: 10px;
+        font-size: 38px;
+      }
+
+      .orbit-note {
+        bottom: 22px;
+        width: 160px;
+        font-size: 14px;
+      }
+
+      .orbit-eye {
+        width: 60px;
+        height: 28px;
+      }
+
+      .orbit-eye::before,
+      .orbit-eye::after {
+        width: 24px;
+        height: 24px;
+      }
+
       .letters-section { padding-top: 100px; }
 
       .letters-title { font-size: 62px; }
@@ -1290,6 +1553,58 @@
         transition-duration: .01ms !important;
       }
       .cursor-glow { display: none; }
+
+      .photo-orbit-section { height: auto; }
+
+      .orbit-sticky {
+        position: relative;
+        height: auto;
+        min-height: 100vh;
+        padding: 110px var(--pad) 90px;
+      }
+
+      .orbit-topline {
+        right: var(--pad);
+        left: var(--pad);
+      }
+
+      .orbit-title {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        margin-bottom: 60px;
+        font-size: clamp(58px, 10vw, 110px);
+        transform: none;
+      }
+
+      .photo-orbit {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
+      }
+
+      .orbit-frame,
+      .orbit-frame:nth-child(3n + 1),
+      .orbit-frame:nth-child(4n + 2) {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        opacity: 1;
+        transform: none;
+      }
+
+      .orbit-eye,
+      .orbit-counter { display: none; }
+
+      .orbit-note {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 40px;
+      }
     }
   </style>
 </head>
@@ -1349,6 +1664,29 @@
       <span class="asterisk" aria-hidden="true">*</span>
     </section>
 
+    <section class="photo-orbit-section" aria-labelledby="orbit-title">
+      <div class="orbit-sticky">
+        <div class="orbit-topline"><span>02 / Живой фотоархив</span><span>Собирается при прокрутке</span></div>
+        <h2 class="orbit-title" id="orbit-title">Моменты<span>в движении</span></h2>
+        <!-- Общие фотографии позже можно подставить в src ниже в любом порядке. -->
+        <div class="photo-orbit" aria-hidden="true">
+          <figure class="orbit-frame"><img src="assets/birthday-card/team.jpg" alt="" loading="lazy"><figcaption><span>memory</span><span>01</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/portrait.jpg" alt="" loading="lazy"><figcaption><span>portrait</span><span>02</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/team.jpg" alt="" loading="lazy"><figcaption><span>together</span><span>03</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/portrait.jpg" alt="" loading="lazy"><figcaption><span>moment</span><span>04</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/team.jpg" alt="" loading="lazy"><figcaption><span>archive</span><span>05</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/portrait.jpg" alt="" loading="lazy"><figcaption><span>today</span><span>06</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/team.jpg" alt="" loading="lazy"><figcaption><span>people</span><span>07</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/portrait.jpg" alt="" loading="lazy"><figcaption><span>frame</span><span>08</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/team.jpg" alt="" loading="lazy"><figcaption><span>always</span><span>09</span></figcaption></figure>
+          <figure class="orbit-frame"><img src="assets/birthday-card/portrait.jpg" alt="" loading="lazy"><figcaption><span>special</span><span>10</span></figcaption></figure>
+        </div>
+        <div class="orbit-eye" aria-hidden="true"><span></span></div>
+        <p class="orbit-counter" aria-hidden="true">000%</p>
+        <p class="orbit-note">Здесь появится серия ваших общих фотографий.</p>
+      </div>
+    </section>
+
     <section class="letters-section" id="letters" aria-labelledby="letters-title">
       <div class="letters-header">
         <h2 class="letters-title reveal" id="letters-title">Три письма.<br>Один повод.</h2>
@@ -1358,37 +1696,43 @@
       <div class="envelopes">
         <!-- Позже текстовые фрагменты ниже можно заменить изображениями рукописной фразы. -->
         <button class="envelope-card envelope-reveal" type="button" data-letter="0" aria-label="Открыть письмо 1: С">
-          <span class="mail-art" aria-hidden="true">
-            <span class="mail-back"></span>
-            <span class="mail-teaser"><span>С</span></span>
-            <span class="mail-flap"></span>
-            <span class="mail-front"></span>
-            <span class="mail-word">С</span>
-            <span class="seal">01</span>
+          <span class="mail-float" aria-hidden="true">
+            <span class="mail-art">
+              <span class="mail-back"></span>
+              <span class="mail-teaser"><span>С</span></span>
+              <span class="mail-flap"></span>
+              <span class="mail-front"></span>
+              <span class="mail-word">С</span>
+              <span class="seal">01</span>
+            </span>
           </span>
           <span class="mail-label"><span>Открыть</span><span>Письмо 01</span></span>
         </button>
 
         <button class="envelope-card envelope-reveal" type="button" data-letter="1" aria-label="Открыть письмо 2: днём">
-          <span class="mail-art" aria-hidden="true">
-            <span class="mail-back"></span>
-            <span class="mail-teaser"><span>днём</span></span>
-            <span class="mail-flap"></span>
-            <span class="mail-front"></span>
-            <span class="mail-word">днём</span>
-            <span class="seal">02</span>
+          <span class="mail-float" aria-hidden="true">
+            <span class="mail-art">
+              <span class="mail-back"></span>
+              <span class="mail-teaser"><span>днём</span></span>
+              <span class="mail-flap"></span>
+              <span class="mail-front"></span>
+              <span class="mail-word">днём</span>
+              <span class="seal">02</span>
+            </span>
           </span>
           <span class="mail-label"><span>Открыть</span><span>Письмо 02</span></span>
         </button>
 
         <button class="envelope-card envelope-reveal" type="button" data-letter="2" aria-label="Открыть письмо 3: рождения">
-          <span class="mail-art" aria-hidden="true">
-            <span class="mail-back"></span>
-            <span class="mail-teaser"><span>рождения!</span></span>
-            <span class="mail-flap"></span>
-            <span class="mail-front"></span>
-            <span class="mail-word">рождения!</span>
-            <span class="seal">03</span>
+          <span class="mail-float" aria-hidden="true">
+            <span class="mail-art">
+              <span class="mail-back"></span>
+              <span class="mail-teaser"><span>рождения!</span></span>
+              <span class="mail-flap"></span>
+              <span class="mail-front"></span>
+              <span class="mail-word">рождения!</span>
+              <span class="seal">03</span>
+            </span>
           </span>
           <span class="mail-label"><span>Открыть</span><span>Письмо 03</span></span>
         </button>
@@ -1521,6 +1865,7 @@
       const openLetter = (index, button = envelopeButtons[index]) => {
         if (modalTimeline?.isActive()) return;
         activeButton = button;
+        button.classList.add("is-opening");
         setLetterContent(index);
         makeConfetti();
         document.body.classList.add("modal-open");
@@ -1528,6 +1873,7 @@
         const art = button.querySelector(".mail-art");
         const flap = button.querySelector(".mail-flap");
         const teaser = button.querySelector(".mail-teaser");
+        const seal = button.querySelector(".seal");
 
         if (reducedMotion) {
           gsap.set(modal, { display: "flex", autoAlpha: 1 });
@@ -1539,12 +1885,14 @@
         modalTimeline
           .to(envelopeButtons.filter(item => item !== button), { autoAlpha: .24, duration: .28 }, 0)
           .to(art, { y: -14, scale: 1.06, duration: .35 }, 0)
-          .to(flap, { rotationX: -180, duration: .55, ease: "power2.inOut" }, .12)
-          .to(teaser, { yPercent: -62, duration: .58, ease: "back.out(1.4)" }, .46)
-          .set(modal, { display: "flex" }, .72)
-          .to(modal, { autoAlpha: 1, duration: .42 }, .72)
-          .fromTo(sheet, { y: 90, rotation: -2.2, scale: .91 }, { y: 0, rotation: 0, scale: 1, duration: .72, ease: "expo.out" }, .76)
-          .fromTo([number, heading, copy, signature], { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .55, stagger: .08, ease: "power2.out" }, 1.02)
+          .to(seal, { scale: .25, autoAlpha: 0, duration: .22, ease: "back.in(2)" }, .08)
+          .to(flap, { rotationX: -180, duration: .58, ease: "power2.inOut" }, .18)
+          .set(flap, { zIndex: 0 }, .49)
+          .to(teaser, { yPercent: -72, duration: .62, ease: "back.out(1.25)" }, .52)
+          .set(modal, { display: "flex" }, .86)
+          .to(modal, { autoAlpha: 1, duration: .42 }, .86)
+          .fromTo(sheet, { y: 90, rotation: -2.2, scale: .91 }, { y: 0, rotation: 0, scale: 1, duration: .72, ease: "expo.out" }, .9)
+          .fromTo([number, heading, copy, signature], { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .55, stagger: .08, ease: "power2.out" }, 1.16)
           .call(() => {
             animateConfetti();
             closeButton.focus();
@@ -1556,10 +1904,13 @@
         const art = activeButton.querySelector(".mail-art");
         const flap = activeButton.querySelector(".mail-flap");
         const teaser = activeButton.querySelector(".mail-teaser");
+        const seal = activeButton.querySelector(".seal");
         gsap.set(envelopeButtons, { clearProps: "opacity,visibility" });
         gsap.set(art, { clearProps: "transform" });
-        gsap.set(flap, { clearProps: "transform" });
+        gsap.set(flap, { clearProps: "transform,zIndex" });
         gsap.set(teaser, { clearProps: "transform" });
+        gsap.set(seal, { clearProps: "transform,opacity,visibility" });
+        activeButton.classList.remove("is-opening");
       };
 
       const closeLetter = () => {
@@ -1587,8 +1938,8 @@
         button.addEventListener("click", () => openLetter(index, button));
 
         if (!reducedMotion) {
-          const art = button.querySelector(".mail-art");
-          gsap.to(art, {
+          const floater = button.querySelector(".mail-float");
+          gsap.to(floater, {
             y: index % 2 ? 10 : -10,
             rotation: index % 2 ? -1.2 : 1.2,
             duration: 2.4 + index * .45,
@@ -1650,6 +2001,75 @@
       if (window.gsap && !reducedMotion) {
         gsap.registerPlugin(ScrollTrigger);
 
+        const orbitFrames = gsap.utils.toArray(".orbit-frame");
+        const orbitCounter = document.querySelector(".orbit-counter");
+        const orbitTargets = [
+          { x: -430, y: -185, r: -6, s: 1 },
+          { x: -265, y: -292, r: 4, s: .9 },
+          { x: -35, y: -285, r: -3, s: .86 },
+          { x: 235, y: -285, r: 5, s: .94 },
+          { x: 420, y: -105, r: -4, s: 1 },
+          { x: 405, y: 155, r: 5, s: .88 },
+          { x: 210, y: 275, r: -5, s: .96 },
+          { x: -40, y: 300, r: 3, s: .86 },
+          { x: -300, y: 235, r: -4, s: 1 },
+          { x: -445, y: 55, r: 5, s: .9 }
+        ];
+        const orbitXFactor = () => window.innerWidth < 700
+          ? window.innerWidth / 1340
+          : Math.min(window.innerWidth / 1280, 1.08);
+        const orbitYFactor = () => window.innerWidth < 700
+          ? Math.min(window.innerHeight / 1280, .66)
+          : Math.min(window.innerHeight / 720, 1.08);
+
+        gsap.set(orbitFrames, {
+          xPercent: -50,
+          yPercent: -50,
+          x: 0,
+          y: 0,
+          scale: .04,
+          rotation: 0,
+          autoAlpha: 0
+        });
+
+        const orbitTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".photo-orbit-section",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1.15,
+            invalidateOnRefresh: true,
+            onUpdate: self => {
+              orbitCounter.textContent = `${String(Math.round(self.progress * 100)).padStart(3, "0")}%`;
+            }
+          }
+        });
+
+        orbitTimeline
+          .fromTo(".orbit-topline, .orbit-note, .orbit-counter", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .2, stagger: .025 }, 0)
+          .to(".orbit-title", { scale: .58, autoAlpha: .12, duration: .22, ease: "power2.out" }, 0)
+          .to(orbitFrames, {
+            x: index => orbitTargets[index].x * orbitXFactor(),
+            y: index => orbitTargets[index].y * orbitYFactor(),
+            rotation: index => orbitTargets[index].r,
+            scale: index => orbitTargets[index].s,
+            autoAlpha: 1,
+            duration: .48,
+            stagger: { amount: .16, from: "center" },
+            ease: "power3.out"
+          }, .02)
+          .fromTo(".orbit-eye", { scale: .45, autoAlpha: 0, rotation: -45 }, { scale: 1, autoAlpha: 1, rotation: 0, duration: .28 }, .18)
+          .to(orbitFrames, {
+            x: index => orbitTargets[(index + 2) % orbitTargets.length].x * orbitXFactor(),
+            y: index => orbitTargets[(index + 2) % orbitTargets.length].y * orbitYFactor(),
+            rotation: index => orbitTargets[(index + 2) % orbitTargets.length].r + 8,
+            scale: index => orbitTargets[(index + 2) % orbitTargets.length].s,
+            duration: .5,
+            ease: "none"
+          }, .54)
+          .to(".orbit-eye", { rotation: 180, scale: 1.14, duration: .5, ease: "none" }, .54)
+          .to(".orbit-title", { scale: .8, autoAlpha: .24, duration: .38, ease: "none" }, .62);
+
         gsap.timeline({ defaults: { ease: "expo.out" } })
           .from(".hero-orb", { scale: .42, autoAlpha: 0, duration: 1.4 })
           .from(".hero-photo-card", { y: 100, rotation: 10, scale: .82, autoAlpha: 0, duration: 1.2 }, .18)
@@ -1672,12 +2092,27 @@
           scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 }
         });
 
-        gsap.utils.toArray(".reveal").forEach((element) => {
+        gsap.utils.toArray(".reveal:not(.editorial-title):not(.letters-title):not(.collage-title):not(.finale-title)").forEach((element) => {
           gsap.from(element, {
             y: 60,
             autoAlpha: 0,
             duration: .95,
             ease: "power3.out",
+            scrollTrigger: { trigger: element, start: "top 88%", once: true }
+          });
+        });
+
+        gsap.utils.toArray(".editorial-title, .letters-title, .collage-title, .finale-title").forEach((element) => {
+          gsap.fromTo(element, {
+            clipPath: "inset(0 0 100% 0)",
+            y: 70,
+            autoAlpha: .2
+          }, {
+            clipPath: "inset(0 0 0% 0)",
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.2,
+            ease: "expo.out",
             scrollTrigger: { trigger: element, start: "top 88%", once: true }
           });
         });
@@ -1724,6 +2159,14 @@
           rotation: 1,
           ease: "none",
           scrollTrigger: { trigger: ".collage", start: "top bottom", end: "bottom top", scrub: 1 }
+        });
+
+        gsap.fromTo(".finale", {
+          clipPath: "inset(14% 0 0 0 round 50% 50% 0 0)"
+        }, {
+          clipPath: "inset(0% 0 0 0 round 0%)",
+          ease: "none",
+          scrollTrigger: { trigger: ".finale", start: "top bottom", end: "top 55%", scrub: 1 }
         });
 
         ScrollTrigger.refresh();
